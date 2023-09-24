@@ -13,7 +13,7 @@ const serviceAccountAuth = new JWT({
   ],
 });
  
-export const revalidate = 3600 // revalidate the data at most every hour
+export const revalidate = 60 // revalidate the data at most every hour
  
 export const getLottery = cache(async ({docid, sheetname}: {docid: string, sheetname: string}) => {
   
