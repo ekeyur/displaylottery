@@ -11,16 +11,19 @@ async function Screen({ params: {docid, sheetname} }: { params: { docid: string,
         {data.slice(0, 40).map((game, index) => {
         return (
           <div key={index} className="relative">
-            
-            {game.ticket_price && <div className="absolute bottom-0 right-0 w-10 h-10 font-bold bg-white flex justify-center items-center rounded-full">
-              {game.slot_number}
-            </div>}
-            {game.ticket_price && <div className="absolute top-0 left-0 w-10 text-white h-10 bg-blue-800 flex justify-center items-center rounded-full">
-              <div className="flex items-start">
-                <span className="text-xs">&#x24;</span>
-                {parseInt(game.ticket_price ?? 0) / 100}
+            {game.ticket_price && (
+              <div className="absolute bottom-0 right-0 w-10 h-10 font-bold bg-white flex justify-center items-center rounded-full">
+                {game.slot_number}
               </div>
-            </div>}
+            )}
+            {game.ticket_price && (
+              <div className="absolute top-0 left-0 w-10 text-white h-10 bg-blue-800 flex justify-center items-center rounded-full">
+                <div className="flex items-start">
+                  <span className="text-xs">&#x24;</span>
+                  {parseInt(game.ticket_price ?? 0) / 100}
+                </div>
+              </div>
+            )}
             <ImageWithFallback
               style={{
                 objectFit: "cover",
