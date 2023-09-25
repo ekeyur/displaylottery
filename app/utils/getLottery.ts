@@ -1,4 +1,4 @@
-import { cache } from 'react';
+import {cache} from 'react'
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 import { getImageUrl } from './getImageUrl';
@@ -13,8 +13,8 @@ const serviceAccountAuth = new JWT({
   ],
 });
  
-export const revalidate = 60 // revalidate the data at most every hour
- 
+export const revalidate = 300;
+
 export const getLottery = cache(async ({docid, sheetname}: {docid: string, sheetname: string}) => {
   
 const doc = new GoogleSpreadsheet(docid, serviceAccountAuth);
@@ -28,6 +28,7 @@ const data = sheetRows.map(row => row.toObject());
 
 const img_width = data[0].image_width;
 const ad_div_height = data[0].ad_div_height;
+const num_to_display = data[0].num_to_display;
 
 const moreData = await Promise.allSettled(data.map(async each_row => {
  
@@ -57,6 +58,6 @@ const finalData = moreData.map(data => {
   }
 })
 
-return {data: finalData, img_width, ad_div_height };
+return {data: finalData, img_width, ad_div_height, num_to_display };
 
 })
