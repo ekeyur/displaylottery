@@ -29,6 +29,8 @@ const data = sheetRows.map(row => row.toObject());
 const img_width = data[0].image_width;
 const ad_div_height = data[0].ad_div_height;
 const num_to_display = data[0].num_to_display;
+const state = data[0].state;
+
 
 const moreData = await Promise.allSettled(data.map(async each_row => {
  
@@ -39,12 +41,12 @@ const moreData = await Promise.allSettled(data.map(async each_row => {
 
 
 // @ts-ignore
-  const lotdata = await getData(getDataUrl(each_row.game_number, "GA"));
+  const lotdata = await getData(getDataUrl(each_row.game_number, state));
 
   return {
     slot_number: each_row.slot_number,
     game_number: each_row.game_number,
-    image_url: getImageUrl(each_row.game_number, "GA"),
+    image_url: getImageUrl(each_row.game_number, state),
     data_url:  each_row.data_url,
     game_name: lotdata.gameName,
     ticket_price: lotdata.ticketPrice,
