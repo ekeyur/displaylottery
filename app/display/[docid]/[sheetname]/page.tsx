@@ -21,7 +21,7 @@ async function Screen({ params: {docid, sheetname} }: { params: { docid: string,
 
   return (
     <main className="flex flex-col gap-2 h-screen p-1">
-      <div className="w-full bg-pink-700 h-full flex items-center justify-around gap-1 font-mono flex-wrap">
+      <div className="w-full h-full flex items-center justify-around gap-1 font-mono flex-wrap">
         {data.slice(0, num_to_display).map((game, index) => {
           return (
             <div key={index} className="relative">
