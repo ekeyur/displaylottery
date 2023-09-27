@@ -31,9 +31,9 @@ async function Screen({ params: {docid, sheetname} }: { params: { docid: string,
                 </div>
               )}
               {game.ticket_price && (
-                <div className="absolute top-0 text-3xl left-0 text-white h-16 w-16 bg-red-500 flex justify-center items-center rounded-full">
+                <div className="absolute top-0 text-3xl right-0 font-semibold text-white h-16 w-16 bg-red-500 flex justify-center items-center rounded-full">
                   <div className="flex items-start">
-                    <span className="text-xs">&#x24;</span>
+                    <span className="text-sm">&#x24;</span>
                     {parseInt(game.ticket_price ?? 0) / 100}
                   </div>
                 </div>
