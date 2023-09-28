@@ -48,12 +48,13 @@ const moreData = await Promise.allSettled(data.map(async each_row => {
     game_number: each_row.game_number,
     image_url: each_row.image_url,
     game_name: each_row.game_name,
-    ticket_price: each_row.ticketPrice,
+    ticket_price: each_row.ticket_price,
     is_featured: each_row.is_featured
   }
 }));
 
 const finalData = moreData.map(data => {
+  console.log(data)
   return {
     // @ts-ignore
     ...data.value

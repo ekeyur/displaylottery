@@ -25,7 +25,7 @@ const { data, img_width, ad_div_height, num_to_display } = await getLottery({ do
                 <div className="absolute bottom-1/3 text-3xl right-0 font-semibold text-white h-16 w-16 bg-fuchsia-600 flex justify-center items-center rounded-md">
                   <div className="flex items-start">
                     <span className="text-sm">&#x24;</span>
-                    {parseInt(game.ticket_price ?? 0) / 100}
+                    {parseInt(game.ticket_price ?? 0)}
                   </div>
                 </div>
               )}
