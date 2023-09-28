@@ -51,12 +51,12 @@ const { data, img_width, ad_div_height, num_to_display } = await getLottery({ do
         style={{ height: `${ad_div_height}px` }}
         className={`bg-slate-200 rounded-sm flex gap-1`}
       >
-        <div className="h-full p-1 justify-between w-2/12 bg-slate-400"></div>
-        <div className="h-full p-1 justify-between w-2/12 bg-slate-400"></div>
-        <div className="h-full p-1 justify-between w-2/12 bg-slate-400"></div>
-        <div className="h-full p-1 justify-between w-2/12 bg-slate-400"></div>
-        <div className="h-full p-1 justify-between w-2/12 bg-slate-400"></div>
-        <div className="h-full p-1 justify-between w-2/12 bg-slate-400"></div>
+        <div className="h-full rounded-md gap-2 justify-between w-2/12 bg-purple-300"></div>
+        <div className="h-full rounded-md gap-2 justify-between w-2/12 bg-purple-300"></div>
+        <div className="h-full rounded-md gap-2 justify-between w-2/12 bg-purple-300"></div>
+        <div className="h-full rounded-md gap-2 justify-between w-2/12 bg-purple-300"></div>
+        <div className="h-full rounded-md gap-2 justify-between w-2/12 bg-purple-300"></div>
+        <div className="h-full rounded-md gap-2 justify-between w-2/12 bg-purple-300"></div>
       </div>
     </main>
   );
