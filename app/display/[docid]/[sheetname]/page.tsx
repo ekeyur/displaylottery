@@ -12,7 +12,7 @@ const { data, img_width, ad_div_height, num_to_display } = await getLottery({ do
 
   return (
     <main className="flex flex-col gap-1 h-screen p-1">
-      <div className="w-full flex items-center justify-around font-mono flex-wrap">
+      <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
         {data.slice(0, num_to_display).map((game, index) => {
           return (
             <div key={index} className="relative">
