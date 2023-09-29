@@ -1,8 +1,5 @@
-import {cache} from 'react'
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
-import { getImageUrl } from './getImageUrl';
-import { getDataUrl } from './getDataUrl';
 
 
 const serviceAccountAuth = new JWT({
@@ -15,8 +12,8 @@ const serviceAccountAuth = new JWT({
  
 export const revalidate = 300;
 
-export const getLottery = cache(async ({docid, sheetname}: {docid: string, sheetname: string}) => {
-  
+export const getLottery = async ({docid, sheetname}: {docid: string, sheetname: string}) => {
+
 const doc = new GoogleSpreadsheet(docid, serviceAccountAuth);
 
 await doc.loadInfo(); // loads document properties and worksheets
@@ -28,21 +25,16 @@ const data = sheetRows.map(row => row.toObject());
 const img_width = data[0].image_width;
 const ad_div_height = data[0].ad_div_height;
 const num_to_display = data[0].num_to_display;
-const state = data[0].state;
 
+const ad_images: string[] = [];
 
-const moreData = await Promise.allSettled(data.map(async each_row => {
- 
-  // async function getData(url:string) {
-  //   const res = await fetch(url);
-  //   return await res.json(); 
-  // }
+data.forEach((val) => {
+  if(!val.ad_image) return
+  //@ts-ignore
+  ad_images.push(val?.ad_image);
+})
 
-
-// @ts-ignore
-  // const lotdata = await getData(getDataUrl(each_row.game_number, state));
-  // console.log(lotdata);
-
+const finalData = data.map(each_row => {
   return {
     slot_number: each_row.slot_number,
     game_number: each_row.game_number,
@@ -51,16 +43,9 @@ const moreData = await Promise.allSettled(data.map(async each_row => {
     ticket_price: each_row.ticket_price,
     is_featured: each_row.is_featured
   }
-}));
-
-const finalData = moreData.map(data => {
-  console.log(data)
-  return {
-    // @ts-ignore
-    ...data.value
-  }
 })
 
-return {data: finalData, img_width, ad_div_height, num_to_display };
 
-})
+return { data: finalData, img_width, ad_div_height, num_to_display, ad_images };
+
+}

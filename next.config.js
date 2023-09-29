@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: 'www.galottery.com',
         port: ''
       },
+      {
+        protocol: 'https',
+        hostname: 'fastly.picsum.photos',
+        port: ''
+      },
     ],
   },
 }
