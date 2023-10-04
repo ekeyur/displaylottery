@@ -34,7 +34,7 @@ function AdCarousel({
           <ImageWithFallback
             src={image}
             alt="image"
-            width={500}
+            width={1000}
             height={ad_div_height}
             style={{ height: `${ad_div_height}px`, objectFit: "cover" }}
           />

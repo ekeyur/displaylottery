@@ -23,15 +23,25 @@ const sheetRows = await sheet.getRows();
 const data = sheetRows.map(row => row.toObject());
 
 const img_width = data[0].image_width;
+const img_height = data[0].image_height;
 const ad_div_height = data[0].ad_div_height;
 const num_to_display = data[0].num_to_display;
 
 const ad_images: string[] = [];
+const empty_slot_images: string[] = [];
 
 data.forEach((val) => {
   if(!val.ad_image) return
   //@ts-ignore
   ad_images.push(val?.ad_image);
+
+});
+
+data.forEach((val) => {
+  if(!val.empty_slot_image) return
+  //@ts-ignore
+  empty_slot_images.push(val?.empty_slot_image);
+
 })
 
 const finalData = data.map(each_row => {
@@ -46,6 +56,6 @@ const finalData = data.map(each_row => {
 })
 
 
-return { data: finalData, img_width, ad_div_height, num_to_display, ad_images };
+return { data: finalData, img_width,img_height, ad_div_height, num_to_display, ad_images, empty_slot_images };
 
 }

@@ -9,7 +9,15 @@ import AdCarousel from '@/components/AdCarousel';
 
 async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 
-const {  data, img_width, ad_div_height, num_to_display, ad_images } = await getLottery({ docid, sheetname });
+const {
+  data,
+  img_width,
+  ad_div_height,
+  num_to_display,
+  ad_images,
+  empty_slot_images,
+  img_height,
+} = await getLottery({ docid, sheetname });
 
 if(!data) return null
 
@@ -25,27 +33,27 @@ if(!data) return null
                 </div>
               )}
               {game.ticket_price && (
-                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-green-300 bg-fuchsia-900 flex justify-center items-center rounded-md">
+                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-green-200 bg-pink-600 flex justify-center items-center rounded-md">
                   <div className="flex items-start">
                     <span className="text-sm">&#x24;</span>
                     {parseInt(game.ticket_price ?? 0)}
                   </div>
                 </div>
               )}
-              <ImageWithFallback
+              {<ImageWithFallback
                 style={{
-                  objectFit: "cover",
+                  objectFit: game.ticket_price ? "cover" : "contain",
                   objectPosition: "0px 0px",
                   width: `${img_width}px`,
-                  height: `${img_width}px`,
+                  height: `${img_height}px`,
                 }}
                 src={game.image_url}
-                fallbackSrc={"/coming-soon.jpg"}
+                fallbackSrc={empty_slot_images[Math.floor(Math.random() * empty_slot_images.length)] || './coming-soon.jpg'}
                 width={400}
-                height={400}
+                height={500}
                 alt={game?.image_url}
                 className="rounded-md"
-              />
+              />}
             </div>
           );
         })}

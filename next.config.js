@@ -12,6 +12,16 @@ const nextConfig = {
         hostname: 'fastly.picsum.photos',
         port: ''
       },
+      {
+        protocol: 'https',
+        hostname: 'www.eatthis.com',
+        port: ''
+      },
+      {
+        protocol: 'https',
+        hostname: 'tobacco-img.stanford.edu',
+        port: ''
+      },
     ],
   },
 }
