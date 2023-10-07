@@ -33,7 +33,7 @@ if(!data) return null
                 </div>
               )}
               {game.ticket_price && (
-                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-indigo-900 bg-indigo-50 flex justify-center items-center rounded-md">
+                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-black bg-green-50 flex justify-center items-center rounded-md">
                   <div className="flex items-start">
                     <span className="text-sm">&#x24;</span>
                     {parseInt(game.ticket_price ?? 0)}
@@ -50,9 +50,9 @@ if(!data) return null
                 src={game.image_url}
                 fallbackSrc={empty_slot_images?.length === 0 ? '/coming-soon.jpg': empty_slot_images[Math.floor(Math.random() * empty_slot_images.length)] }
                 width={400}
-                height={500}
+                height={600}
                 alt={game?.image_url}
-                className="rounded-md"ß
+                className="rounded-md"
               />}
             </div>
           );
