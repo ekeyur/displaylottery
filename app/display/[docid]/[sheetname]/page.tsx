@@ -22,7 +22,7 @@ const {
 if(!data) return null
 
   return (
-    <main className="flex flex-col h-screen gap-1">
+    <main className="flex flex-col h-screen gap-1 overflow-hidden">
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
         {data.slice(0, num_to_display).map((game, index) => {
           return (
