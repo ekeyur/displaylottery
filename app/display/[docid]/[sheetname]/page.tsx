@@ -22,7 +22,7 @@ const {
 if(!data) return null
 
   return (
-    <main className="flex flex-col gap-1 h-screen p-1">
+    <main className="flex flex-col h-screen gap-1">
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
         {data.slice(0, num_to_display).map((game, index) => {
           return (
@@ -33,7 +33,7 @@ if(!data) return null
                 </div>
               )}
               {game.ticket_price && (
-                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-green-200 bg-pink-600 flex justify-center items-center rounded-md">
+                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-green-900 bg-white flex justify-center items-center rounded-md">
                   <div className="flex items-start">
                     <span className="text-sm">&#x24;</span>
                     {parseInt(game.ticket_price ?? 0)}
@@ -58,12 +58,12 @@ if(!data) return null
           );
         })}
       </div>
-      <div
+      {!!ad_images?.length && <div
         style={{ height: `${ad_div_height}px` }}
         className={`bg-slate-200 rounded-sm flex gap-1`}
       >
         <AdCarousel ad_images={ad_images} ad_div_height={ad_div_height}/>
-      </div>
+      </div>}
     </main>
   );
 }
