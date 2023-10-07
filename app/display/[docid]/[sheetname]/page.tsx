@@ -48,11 +48,11 @@ if(!data) return null
                   height: `${img_height}px`,
                 }}
                 src={game.image_url}
-                fallbackSrc={empty_slot_images[Math.floor(Math.random() * empty_slot_images.length)] || './coming-soon.jpg'}
+                fallbackSrc={!!!empty_slot_images?.length ? empty_slot_images[Math.floor(Math.random() * empty_slot_images.length)] : './coming-soon.jpg'}
                 width={400}
                 height={500}
                 alt={game?.image_url}
-                className="rounded-md"
+                className="rounded-md"ß
               />}
             </div>
           );
