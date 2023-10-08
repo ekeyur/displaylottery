@@ -28,7 +28,7 @@ export function priceBgColorString(price: number) {
       return `bg-yellow-300`
 
     case 25:
-      return `bg-teal-300`
+      return `bg-red-300`
     
     case 30: 
       return `bg-lime-300`
