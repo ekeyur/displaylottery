@@ -4,8 +4,7 @@ import React from 'react'
 import ImageWithFallback from "../../../../components/ImageWithFallback"
 import { getLottery } from "../../../utils/getLottery";
 import AdCarousel from '@/components/AdCarousel';
-
-
+import {cn} from '../../../utils/cn'
 
 async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 
@@ -33,27 +32,33 @@ if(!data) return null
                 </div>
               )}
               {game.ticket_price && (
-                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-black bg-green-50 flex justify-center items-center rounded-md">
+                <div className="absolute bottom-1/3 text-3xl right-0 font-semibold  h-16 w-16 text-black bg-green-50 flex justify-center items-center rounded-md shadow-xl">
                   <div className="flex items-start">
                     <span className="text-sm">&#x24;</span>
                     {parseInt(game.ticket_price ?? 0)}
                   </div>
                 </div>
               )}
-              {<ImageWithFallback
-                style={{
-                  objectFit: game.ticket_price ? "cover" : "contain",
-                  objectPosition: "0px 0px",
-                  width: `${img_width}px`,
-                  height: `${img_height}px`,
-                }}
-                src={game.image_url}
-                fallbackSrc={empty_slot_images?.length === 0 ? '/coming-soon.jpg': empty_slot_images[Math.floor(Math.random() * empty_slot_images.length)] }
-                width={400}
-                height={600}
-                alt={game?.image_url}
-                className="rounded-md"
-              />}
+              {
+                <ImageWithFallback
+                  style={{
+                    width: `${img_width}px`,
+                    height: `${img_height}px`,
+                  }}
+                  src={game.image_url}
+                  fallbackSrc={
+                    empty_slot_images?.length === 0
+                      ? "/coming-soon.jpg"
+                      : empty_slot_images[
+                          Math.floor(Math.random() * empty_slot_images.length)
+                        ]
+                  }
+                  width={400}
+                  height={600}
+                  alt={game?.image_url}
+                  className={cn(`rounded-md`, game.ticket_price ? `object-cover object-left-top`: `object-contain object-center` )}
+                />
+              }
             </div>
           );
         })}
