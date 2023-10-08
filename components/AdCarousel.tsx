@@ -21,7 +21,7 @@ function AdCarousel({
       showStatus={false}
       showThumbs={false}
       autoPlay
-      interval={10_000}
+      interval={15_000}
       transitionTime={1_500}
     >
       {ad_images?.map((image: string) => (

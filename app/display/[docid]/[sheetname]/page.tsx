@@ -53,7 +53,7 @@ if(!data) return null
                           Math.floor(Math.random() * empty_slot_images.length)
                         ]
                   }
-                  width={400}
+                  width={500}
                   height={600}
                   alt={game?.image_url}
                   className={cn(`rounded-md`, game.ticket_price ? `object-cover object-left-top`: `object-contain object-center` )}
