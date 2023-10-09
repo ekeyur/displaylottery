@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="flex h-screen justify-between">
       <div className="z-10 w-full h-full flex items-center justify-center font-mono">
-        ekeyur@gmail.com
+        support@displaylottery.com
       </div>
     </main>
   )
