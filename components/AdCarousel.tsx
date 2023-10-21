@@ -13,7 +13,7 @@ function AdCarousel({
   ad_div_height: string;
 }) {
 
-  const [intervalz, setIntervalz] = useState(3000);
+  const [intervalz, setIntervalz] = useState(parseInt(ad_images[0].img)*1000);
    const onChange = (_index: number, item: any) => {
      setIntervalz(item?.props["data-interval"]);
    };
