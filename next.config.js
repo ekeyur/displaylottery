@@ -14,14 +14,9 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.eatthis.com',
+        hostname: 'www.saucey.com',
         port: ''
-      },
-      {
-        protocol: 'https',
-        hostname: 'tobacco-img.stanford.edu',
-        port: ''
-      },
+      }
     ],
   },
 }
