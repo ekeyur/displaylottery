@@ -22,13 +22,6 @@ if(!data) return null
 
   return (
     <main className="flex flex-col h-screen p-1 overflow-hidden">
-      <div
-        className={`bg-black text-white rounded-sm flex gap-3 justify-center items-center w-full h-8 mb-1`}
-      >
-        <span>www.displaylottery.com</span>
-        <span>+1(408) 506-7277</span>
-        <span>hello@displaylottery.com</span>
-      </div>
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
         {data.slice(0, num_to_display).map((game, index) => {
           return (
