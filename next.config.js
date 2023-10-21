@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.saucey.com',
+        hostname: 'cdn.saucey.com',
         port: ''
       }
     ],
