@@ -52,7 +52,7 @@ if(!data) return null
                   src={game.image_url}
                   fallbackSrc={
                     empty_slot_images?.length === 0
-                      ? "/coming-soon.jpg"
+                      ? "/coming-soon.png"
                       : empty_slot_images[
                           randomInteger(0, empty_slot_images.length - 1)
                         ]

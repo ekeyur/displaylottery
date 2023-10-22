@@ -11,8 +11,8 @@ const ImageWithFallback = (props: any) => {
       <div
         className={cn(
           "",
-          props.isfeatured &&
-            `motion-safe:animate-heartBeat repeat-infinite`
+          props.isfeatured ? 
+            `motion-safe:animate-heartBeat repeat-infinite` : undefined
         )}
       >
         <Image

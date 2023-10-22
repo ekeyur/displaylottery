@@ -18,6 +18,8 @@ const {
   img_height,
 } = await getLottery({ docid, sheetname });
 
+const empty_slot = [...empty_slot_images, "/coming-soon.png"];
+
 if(!data) return null
   
   return (
@@ -69,13 +71,7 @@ if(!data) return null
                   }}
                   src={game.image_url}
                   isfeatured={game.is_featured}
-                  fallbackSrc={
-                    empty_slot_images?.length === 0
-                      ? "/coming-soon.jpg"
-                      : empty_slot_images[
-                          randomInteger(0, empty_slot_images.length - 1)
-                        ]
-                  }
+                  fallbackSrc={empty_slot[randomInteger(0, empty_slot_images.length)]}
                   width={500}
                   height={600}
                   alt={game?.image_url}
