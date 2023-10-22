@@ -51,7 +51,7 @@ const finalData = data.map(each_row => {
     image_url: each_row.image_url,
     game_name: each_row.game_name,
     ticket_price: each_row.ticket_price,
-    is_featured: each_row.is_featured
+    is_featured: each_row.is_featured === "Yes"
   }
 })
 

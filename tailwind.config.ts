@@ -20,9 +20,9 @@ const config: Config = {
         },
         heartBeat: {
           '0%': {transform: 'scale(1);'},
-          '20%':{transform: 'scale(1.1);'},
+          '20%':{transform: 'scale(1.05);'},
           '40%':{transform: 'scale(1);'},
-          '60%':{transform: 'scale(1.1);'},
+          '60%':{transform: 'scale(1.05);'},
           '80%':{transform: 'scale(1);'},
         }
       },

@@ -1,13 +1,10 @@
 
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import ImageWithFallback from "../../../../components/ImageWithFallback"
 import { getLottery } from "../../../utils/getLottery";
 import AdCarousel from '@/components/AdCarousel';
 import {cn, priceBgColorString, randomInteger} from '../../../utils';
-
-const YES = "Yes";
-const NO = "No";
 
 async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 
@@ -46,8 +43,8 @@ if(!data) return null
                   </div>
                 </div>
               )}
-              {game.is_featured === YES && (
-                <div className="absolute top-0 right-0 w-12 h-12 text-4xl font-bold  bg-lime-200 text-green-700 flex justify-center items-center rounded-md">
+              {!!game.is_featured && (
+                <div className="absolute top-0 z-10 right-0 w-12 h-12 text-4xl font-bold  bg-lime-200 text-green-700 flex justify-center items-center rounded-md">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
