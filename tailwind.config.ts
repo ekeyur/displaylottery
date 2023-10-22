@@ -19,11 +19,11 @@ const config: Config = {
           '50%': {transform: 'rotate(5deg)'}
         },
         heartBeat: {
-          '0%': {transform: 'scale(1);'},
-          '20%':{transform: 'scale(1.08);'},
-          '40%':{transform: 'scale(1);'},
-          '60%':{transform: 'scale(1.08);'},
-          '80%':{transform: 'scale(1);'},
+          '0%': {transform: 'scale(.90);'},
+          '20%':{transform: 'scale(1);'},
+          '40%':{transform: 'scale(.90);'},
+          '60%':{transform: 'scale(1);'},
+          '80%':{transform: 'scale(.90);'},
         }
       },
       animation: {
