@@ -13,6 +13,23 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      keyframes: {
+        wiggle: {
+          '0%, 100%' : { transform: 'rotate(-5deg)'},
+          '50%': {transform: 'rotate(5deg)'}
+        },
+        heartBeat: {
+          '0%': {transform: 'scale(1);'},
+          '20%':{transform: 'scale(1.1);'},
+          '40%':{transform: 'scale(1);'},
+          '60%':{transform: 'scale(1.1);'},
+          '80%':{transform: 'scale(1);'},
+        }
+      },
+      animation: {
+        wiggle: 'wiggle 5s ease-in-out infinite',
+        heartBeat: 'heartBeat infinite 5s'
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
