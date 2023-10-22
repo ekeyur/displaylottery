@@ -18,7 +18,7 @@ const {
   img_height,
 } = await getLottery({ docid, sheetname });
 
-const empty_slot = [...empty_slot_images, "/coming-soon.jpg"];
+const empty_slot = [...empty_slot_images, "/coming-soon.svg"];
 
 if(!data) return null
   
