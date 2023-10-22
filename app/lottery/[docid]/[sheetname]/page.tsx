@@ -6,8 +6,8 @@ import { getLottery } from "../../../utils/getLottery";
 import AdCarousel from '@/components/AdCarousel';
 import {cn, priceBgColorString, randomInteger} from '../../../utils';
 
-async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 
+async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 const {
   data,
   img_width,
@@ -18,10 +18,14 @@ const {
   img_height,
 } = await getLottery({ docid, sheetname });
 
-const empty_slot = [...empty_slot_images, "/coming-soon.svg"];
+const empty_slot = [
+  "/coming-soon.svg",
+  ...empty_slot_images,
+  "/coming-soon.svg",
+];
 
 if(!data) return null
-  
+
   return (
     <main className="flex flex-col p-1 overflow-hidden h-screen w-screen bg-gray-50">
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
@@ -52,28 +56,25 @@ if(!data) return null
                   </div>
                 </div>
               )}
-              {
-                <ImageWithFallback
-                  style={{
-                    width: `${img_width}px`,
-                    height: `${img_height}px`,
-                  }}
-                  src={game.image_url}
-                  isfeatured={game.is_featured}
-                  fallbackSrc={
-                    empty_slot[randomInteger(0, empty_slot_images.length)]
-                  }
-                  width={500}
-                  height={600}
-                  alt={game?.image_url}
-                  className={cn(
-                    `rounded-md`,
-                    game.ticket_price
-                      ? `object-cover object-left-top`
-                      : `object-contain object-center`
-                  )}
-                />
-              }
+
+              <ImageWithFallback
+                style={{
+                  width: `${img_width}px`,
+                  height: `${img_height}px`,
+                }}
+                src={game.image_url}
+                isfeatured={game.is_featured}
+                fallbackSrc={empty_slot[randomInteger(0,empty_slot.length-1)]}
+                width={500}
+                height={600}
+                alt={game?.image_url}
+                className={cn(
+                  `rounded-md`,
+                  game.ticket_price
+                    ? `object-cover object-left-top`
+                    : `object-contain object-center`
+                )}
+              />
             </div>
           );
         })}
@@ -91,3 +92,4 @@ if(!data) return null
 }
 
 export default Screen
+
