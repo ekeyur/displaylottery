@@ -24,7 +24,7 @@ const {
 if(!data) return null
 
   return (
-    <main className="flex flex-col p-1 overflow-hidden h-full w-full bg-white">
+    <main className="flex flex-col p-1 overflow-hidden h-screen w-screen bg-white">
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
         {data.slice(0, num_to_display).map((game, index) => {
           return (
