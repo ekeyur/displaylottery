@@ -55,7 +55,6 @@ const finalData = data.map(each_row => {
   }
 })
 
-
 return { data: finalData, img_width,img_height, ad_div_height, num_to_display, ad_images, empty_slot_images };
 
 }

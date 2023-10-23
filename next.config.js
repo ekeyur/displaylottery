@@ -16,7 +16,12 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'cdn.saucey.com',
         port: ''
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'ulmrzigailrqrumrvhky.supabase.co',
+        port: ''
+      },
     ],
   },
 }

@@ -10,7 +10,7 @@ function AdCarousel({
   ad_div_height,
 }: {
   ad_images: {img: string, time: string}[];
-  ad_div_height: string;
+  ad_div_height?: string;
 }) {
 
   const [intervalz, setIntervalz] = useState(parseInt(ad_images[0].img)*1000);
@@ -41,9 +41,9 @@ function AdCarousel({
           <ImageWithFallback
             src={img}
             alt="image"
-            width={500}
-            height={500}
-            style={{ height: `${ad_div_height}px`, objectFit: "cover" }}
+            width={1920}
+            height={1080}
+            style={{...(ad_div_height && { height: `${ad_div_height}px`}), objectFit: "cover" }}
           />
         </div>
       ))}
