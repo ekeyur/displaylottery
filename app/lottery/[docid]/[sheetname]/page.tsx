@@ -4,7 +4,7 @@ import React from 'react'
 import ImageWithFallback from "../../../../components/ImageWithFallback"
 import { getLottery } from "../../../utils/getLottery";
 import AdCarousel from '@/components/AdCarousel';
-import {cn, priceBgColorString, randomInteger} from '../../../utils';
+import {cn, priceBgColorString, randomInteger, shuffle} from '../../../utils';
 
 
 async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
@@ -79,26 +79,20 @@ if(!data) return null
                   )}
                 />
               ) : (
-                <ImageWithFallback
+                <div
                   style={{
                     width: `${img_width}px`,
                     height: `${img_height}px`,
                   }}
-                  src={empty_slot[randomInteger(0, empty_slot.length - 1)]}
-                  isfeatured={game.is_featured}
-                  fallbackSrc={
-                    empty_slot[randomInteger(0, empty_slot.length - 1)]
-                  }
-                  width={500}
-                  height={600}
-                  alt={game?.image_url}
-                  className={cn(
-                    `rounded-md`,
-                    game.ticket_price
-                      ? `object-cover object-left-top`
-                      : `object-contain object-center`
-                  )}
-                />
+                  key={index}
+                >
+                  <AdCarousel
+                    ad_images={shuffle([
+                      { img: "/coming-soon.svg", time: "20" },
+                      ...ad_images
+                    ])}
+                  />
+                </div>
               )}
             </div>
           );
