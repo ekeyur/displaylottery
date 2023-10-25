@@ -19,9 +19,9 @@ const {
 } = await getLottery({ docid, sheetname });
 
 const empty_slot = [
-  "/coming-soon.svg",
+  
   ...empty_slot_images,
-  "/coming-soon.svg",
+
 ];
 
 if(!data) return null
@@ -87,14 +87,7 @@ if(!data) return null
                   key={index}
                 >
                   <AdCarousel
-                    ad_images={shuffle([
-                      {
-                        img: "/coming-soon.svg",
-                        time: "20",
-                        text: "",
-                      },
-                      ...ad_images,
-                    ])}
+                    ad_images={shuffle(ad_images)}
                     height={img_height}
                     width={img_width}
 
