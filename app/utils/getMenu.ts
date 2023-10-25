@@ -24,6 +24,7 @@ const finalData = data.map(each_row => {
   return {
     img: each_row.image_url,
     time: each_row.display_time_sec,
+    text: each_row.image_text
   }
 })
 
