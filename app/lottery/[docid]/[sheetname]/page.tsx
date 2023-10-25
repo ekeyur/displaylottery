@@ -57,24 +57,49 @@ if(!data) return null
                 </div>
               )}
 
-              <ImageWithFallback
-                style={{
-                  width: `${img_width}px`,
-                  height: `${img_height}px`,
-                }}
-                src={game.image_url}
-                isfeatured={game.is_featured}
-                fallbackSrc={empty_slot[randomInteger(0,empty_slot.length-1)]}
-                width={500}
-                height={600}
-                alt={game?.image_url}
-                className={cn(
-                  `rounded-md`,
-                  game.ticket_price
-                    ? `object-cover object-left-top`
-                    : `object-contain object-center`
-                )}
-              />
+              {game.ticket_price ? (
+                <ImageWithFallback
+                  style={{
+                    width: `${img_width}px`,
+                    height: `${img_height}px`,
+                  }}
+                  src={game.image_url}
+                  isfeatured={game.is_featured}
+                  fallbackSrc={
+                    empty_slot[randomInteger(0, empty_slot.length - 1)]
+                  }
+                  width={500}
+                  height={600}
+                  alt={game?.image_url}
+                  className={cn(
+                    `rounded-md`,
+                    game.ticket_price
+                      ? `object-cover object-left-top`
+                      : `object-contain object-center`
+                  )}
+                />
+              ) : (
+                <ImageWithFallback
+                  style={{
+                    width: `${img_width}px`,
+                    height: `${img_height}px`,
+                  }}
+                  src={empty_slot[randomInteger(0, empty_slot.length - 1)]}
+                  isfeatured={game.is_featured}
+                  fallbackSrc={
+                    empty_slot[randomInteger(0, empty_slot.length - 1)]
+                  }
+                  width={500}
+                  height={600}
+                  alt={game?.image_url}
+                  className={cn(
+                    `rounded-md`,
+                    game.ticket_price
+                      ? `object-cover object-left-top`
+                      : `object-contain object-center`
+                  )}
+                />
+              )}
             </div>
           );
         })}

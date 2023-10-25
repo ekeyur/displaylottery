@@ -29,6 +29,7 @@ function AdCarousel({
       autoPlay
       interval={intervalz}
       transitionTime={1_500}
+      
     >
       {ad_images?.map(({ img, time }: { img: string; time: string }) => (
         <div
