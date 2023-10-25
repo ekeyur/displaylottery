@@ -26,7 +26,7 @@ const img_width = data[0].image_width;
 const img_height = data[0].image_height;
 const ad_div_height = data[0].ad_div_height;
 const num_to_display = data[0].num_to_display;
-type ad_image_type = {img: string, time: string}
+type ad_image_type = {img: string, time: string, text: string}
 const ad_images: ad_image_type[] = [];
 const empty_slot_images: string[] = [];
 

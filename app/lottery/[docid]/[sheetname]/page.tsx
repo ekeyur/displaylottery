@@ -98,14 +98,6 @@ if(!data) return null
           );
         })}
       </div>
-      {/* {!!ad_images?.length && (
-        <div
-          style={{ height: `${ad_div_height}px` }}
-          className={`bg-slate-200 rounded-sm flex gap-1`}
-        >
-          <AdCarousel ad_images={ad_images} ad_div_height={ad_div_height} />
-        </div>
-      )} */}
     </main>
   );
 }
