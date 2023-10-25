@@ -33,7 +33,7 @@ const empty_slot_images: string[] = [];
 data.forEach((val) => {
   if(!val.ad_image) return
   //@ts-ignore
-  ad_images.push({img: val?.ad_image, time: val?.ad_image_display_time_sec ?? DEFAULT_TIME});
+  ad_images.push({img: val?.ad_image, time: val?.ad_image_display_time_sec ?? DEFAULT_TIME, text: val?.ad_image_display_text});
 
 });
 
