@@ -64,7 +64,7 @@ if(!data) return null
                     height: `${img_height}px`,
                   }}
                   src={game.image_url}
-                  isfeatured={game.is_featured}
+                  isfeatured={game.is_featured.toString()}
                   fallbackSrc={
                     empty_slot[randomInteger(0, empty_slot.length - 1)]
                   }
