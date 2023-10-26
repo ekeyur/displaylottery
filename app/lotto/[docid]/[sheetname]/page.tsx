@@ -4,10 +4,11 @@ import React from 'react'
 import ImageWithFallback from "../../../../components/ImageWithFallback"
 import { getLottery } from "../../../utils/getLottery";
 import AdCarousel from '@/components/AdCarousel';
-import {cn, priceBgColorString, randomInteger, shuffle} from '../../../utils';
+import {cn, priceBgColorString, randomInteger, randomNoRepeats, shuffle} from '../../../utils';
 
 
 async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
+
 const {
   data,
   img_width,
@@ -17,6 +18,7 @@ const {
   img_height,
 } = await getLottery({ docid, sheetname });
 
+const getImage = randomNoRepeats(ad_images);
 
 if(!data) return null
 
@@ -52,26 +54,26 @@ if(!data) return null
               )}
 
               {game.ticket_price ? (
-                <ImageWithFallback
-                  style={{
-                    width: `${img_width}px`,
-                    height: `${img_height}px`,
-                  }}
-                  src={game.image_url}
-                  isfeatured={game.is_featured.toString()}
-                  fallbackSrc={
-                    empty_slot_images[randomInteger(0, empty_slot_images.length - 1)]
-                  }
-                  width={500}
-                  height={600}
-                  alt={game?.image_url}
-                  className={cn(
-                    `rounded-md`,
-                    game.ticket_price
-                      ? `object-cover object-left-top`
-                      : `object-contain object-center`
-                  )}
-                />
+                <div className="relative">
+                  <ImageWithFallback
+                    style={{
+                      width: `${img_width}px`,
+                      height: `${img_height}px`,
+                    }}
+                    src={game.image_url}
+                    isfeatured={game.is_featured.toString()}
+                    fallbackSrc={getImage().img}
+                    width={500}
+                    height={600}
+                    alt={game?.image_url}
+                    className={cn(
+                      `rounded-md`,
+                      game.ticket_price
+                        ? `object-cover object-left-top`
+                        : `object-contain object-center`
+                    )}
+                  />
+                </div>
               ) : (
                 <div
                   style={{
@@ -84,7 +86,6 @@ if(!data) return null
                     ad_images={shuffle(ad_images)}
                     height={img_height}
                     width={img_width}
-
                   />
                 </div>
               )}
