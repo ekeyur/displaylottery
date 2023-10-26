@@ -11,18 +11,12 @@ async function Screen({ params: {docid, sheetname} }: { params: { docid: string,
 const {
   data,
   img_width,
-  ad_div_height,
   num_to_display,
   ad_images,
   empty_slot_images,
   img_height,
 } = await getLottery({ docid, sheetname });
 
-const empty_slot = [
-  
-  ...empty_slot_images,
-
-];
 
 if(!data) return null
 
@@ -66,7 +60,7 @@ if(!data) return null
                   src={game.image_url}
                   isfeatured={game.is_featured.toString()}
                   fallbackSrc={
-                    empty_slot[randomInteger(0, empty_slot.length - 1)]
+                    empty_slot_images[randomInteger(0, empty_slot_images.length - 1)]
                   }
                   width={500}
                   height={600}
