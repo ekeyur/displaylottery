@@ -14,7 +14,6 @@ const {
   img_width,
   num_to_display,
   ad_images,
-  empty_slot_images,
   img_height,
 } = await getLottery({ docid, sheetname });
 
@@ -28,16 +27,23 @@ if(!data) return null
         {data.slice(0, num_to_display).map((game, index) => {
           return (
             <div key={index} className={cn("relative")}>
-              {game.ticket_price && (
+              {game.ticket_price &&
+                game.slot_number && (
+                  <div
+                    className={cn(
+                      "absolute z-10 bottom-0 right-1/3 w-16 h-16 text-4xl font-bold bg-black text-white flex justify-center items-center rounded-full"
+                    )}
+                  >
+                    {game.slot_number}
+                  </div>
+                )}
+              {game.ticket_price && game.ticket_label && (
                 <div
                   className={cn(
-                    "absolute z-10 bottom-0 right-1/3 w-16 h-16 text-4xl font-bold bg-black text-white flex justify-center items-center rounded-full",
-                    game.is_featured
-                      ? `bg-gradient-to-l from-fuchsia-500 via-violet-600 to-indigo-600`
-                      : undefined
+                    "absolute z-10 top-0 right-0 p-1 font-bold px-4 bg-red-600 text-white flex justify-center items-center rounded-md"
                   )}
                 >
-                  {game.slot_number}
+                  {game.ticket_label}
                 </div>
               )}
               {game.ticket_price && (
@@ -48,7 +54,7 @@ if(!data) return null
                 >
                   <div className="flex items-start">
                     <span className="text-sm">&#x24;</span>
-                    {parseInt(game.ticket_price ?? 0)}
+                    {parseInt(game.ticket_price)}
                   </div>
                 </div>
               )}
@@ -83,7 +89,7 @@ if(!data) return null
                   key={index}
                 >
                   <AdCarousel
-                    ad_images={shuffle(ad_images)}
+                    ad_images={[...shuffle(ad_images)]}
                     height={img_height}
                     width={img_width}
                   />

@@ -39,13 +39,11 @@ export function priceBgColorString(price: number) {
 }
 
 export function shuffle(array: any[]) {
-  return array.reduce( 
-        (newArr, _, i) => {
-            let rand = i + ( Math.floor( Math.random() * (newArr.length - i) ) );
-            [newArr[rand], newArr[i]] = [newArr[i], newArr[rand]]
-            return newArr
-        }, [...array]
-    )
+  for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 export function randomNoRepeats(array: any[]) {

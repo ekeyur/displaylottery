@@ -28,7 +28,6 @@ const ad_div_height = data[0].ad_div_height;
 const num_to_display = data[0].num_to_display;
 type ad_image_type = {img: string, time: string, text: string}
 const ad_images: ad_image_type[] = [];
-const empty_slot_images: string[] = [];
 
 data.forEach((val) => {
   if(!val.ad_image) return
@@ -51,10 +50,11 @@ const finalData = data.map(each_row => {
     image_url: each_row.image_url,
     game_name: each_row.game_name,
     ticket_price: each_row.ticket_price,
+    ticket_label: each_row.ticket_label,
     is_featured: each_row.is_featured === "Yes"
   }
 })
 
-return { data: finalData, img_width,img_height, ad_div_height, num_to_display, ad_images, empty_slot_images };
+return { data: finalData, img_width,img_height, ad_div_height, num_to_display, ad_images };
 
 }
