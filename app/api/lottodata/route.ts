@@ -1,4 +1,6 @@
-  import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { NextResponse } from "next/server";
+
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
 import { getImageUrl } from '../../utils/getImageUrl';
 const DEFAULT_TIME = '30'
@@ -51,6 +53,7 @@ export async function GET(request: Request) {
         is_featured: each_row.is_featured === "Yes"
       }
     })
-        return Response.json({ values: finalData, img_width , img_height, ad_div_height, num_to_display, ad_images });
+    
+    return NextResponse.json({ values: finalData, img_width , img_height, ad_div_height, num_to_display, ad_images });
 
 }
