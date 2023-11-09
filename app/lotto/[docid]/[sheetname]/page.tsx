@@ -1,42 +1,49 @@
-
+'use client'
 
 import React from 'react'
 import ImageWithFallback from "../../../../components/ImageWithFallback"
-import { getLottery } from "../../../utils/getLottery";
-import AdCarousel from '@/components/AdCarousel';
-import {cn, priceBgColorString, randomInteger, randomNoRepeats, shuffle} from '../../../utils';
+import {cn, priceBgColorString} from '../../../utils';
+import AdImageWithText from '@/components/AdImageWithText';
+import { useQuery } from '@tanstack/react-query';
+import Loading from '@/components/Loading';
+import {getLotteryData} from '../../../utils/getLotteryData'
 
+function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 
-async function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
+const { data, error, isLoading } = useQuery({
+  queryKey: ["getLotteryData", docid, sheetname],
+  refetchInterval: 1000 * 60 * 30,
+  queryFn: () => getLotteryData({ docid, sheetname }),
+  refetchOnWindowFocus: false,
+});
 
-const {
-  data,
-  img_width,
-  num_to_display,
-  ad_images,
-  img_height,
-} = await getLottery({ docid, sheetname });
+if(isLoading) {
+  return (
+    <div className="flex flex-col p-1 overflow-hidden h-screen w-screen bg-gray-50 justify-center items-center">
+      <Loading />
+    </div>
+  );
+}
 
-const getImage = randomNoRepeats(ad_images);
+if(error) return null;
 
-if(!data) return null
+if (!data?.values) return null;
 
   return (
     <main className="flex flex-col p-1 overflow-hidden h-screen w-screen bg-gray-50">
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
-        {data.slice(0, num_to_display).map((game, index) => {
+        {data.values.slice(0, data.num_to_display).map((game: any, index: number) => {
           return (
             <div key={index} className={cn("relative")}>
-              {game.ticket_price &&
-                game.slot_number && (
-                  <div
-                    className={cn(
-                      "absolute z-10 bottom-0 right-1/3 w-16 h-16 text-4xl font-bold bg-black text-white flex justify-center items-center rounded-full"
-                    )}
-                  >
-                    {game.slot_number}
-                  </div>
-                )}
+              {game.ticket_price && game.slot_number && (
+                <div
+                  className={cn(
+                    "absolute z-10 bottom-0 right-1/3 w-16 h-16 text-4xl font-bold bg-black text-white flex justify-center items-center rounded-full"
+                  )}
+                >
+                  {game.slot_number}
+                </div>
+              )}
               {game.ticket_price && game.ticket_label && (
                 <div
                   className={cn(
@@ -48,7 +55,7 @@ if(!data) return null
               )}
               {game.ticket_price && (
                 <div
-                  className={`absolute z-10 bottom-1/3 text-4xl right-0 font-semibold  h-16 w-16 text-black ${priceBgColorString(
+                  className={`absolute z-10 bottom-1/3 text-4xl right-0 p-1 font-semibold text-black ${priceBgColorString(
                     parseInt(game.ticket_price)
                   )} flex justify-center items-center rounded-md shadow-xl`}
                 >
@@ -60,18 +67,18 @@ if(!data) return null
               )}
 
               {game.ticket_price ? (
-                <div className="relative">
+                <div className="relative flex justify-center items-center">
                   <ImageWithFallback
                     style={{
-                      width: `${img_width}px`,
-                      height: `${img_height}px`,
+                      width: `${data.img_width}px`,
+                      height: `${data.img_height}px`,
                     }}
-                    src={game.image_url}
+                    src={game.image_url?.url}
                     isfeatured={game.is_featured.toString()}
-                    fallbackSrc={getImage().img}
+                    fallbackSrc={game.image_url?.falbackUrl}
                     width={500}
                     height={600}
-                    alt={game?.image_url}
+                    alt={game?.game_number}
                     className={cn(
                       `rounded-md`,
                       game.ticket_price
@@ -82,16 +89,15 @@ if(!data) return null
                 </div>
               ) : (
                 <div
-                  style={{
-                    width: `${img_width}px`,
-                    height: `${img_height}px`,
-                  }}
+                  style={{ width: `${data.img_width}px`, height: `${data.img_height}px` }}
                   key={index}
+                  className="flex justify-center items-end"
                 >
-                  <AdCarousel
-                    ad_images={[...shuffle(ad_images)]}
-                    height={img_height}
-                    width={img_width}
+                  <AdImageWithText
+                    adImages={[
+                      ...data.ad_images,
+                      { img: "/coming-soon.svg", time: "30", text: "" },
+                    ]}
                   />
                 </div>
               )}

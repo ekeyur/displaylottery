@@ -22,12 +22,14 @@ const data = sheetRows.map(row => row.toObject());
 
 const finalData = data.map(each_row => {
   return {
-    img: each_row.image_url,
-    time: each_row.display_time_sec,
-    text: each_row.image_text
+    img_url: each_row.image_url,
+    start_time: each_row.start_time,
+    end_time: each_row.end_time,
+    text: each_row.image_text,
+    landscape: each_row.landscape === "Yes"
   }
 })
 
-return { data: finalData };
+  return { values: finalData };
 
 }
