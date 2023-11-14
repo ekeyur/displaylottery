@@ -10,11 +10,11 @@ const Footer = () => {
             <h2 className="text-2xl font-semibold mb-6 text-fuchsia-900">
               Contact us to get started
             </h2>
-            <p className="mb-2">
+            <p className="mb-2 text-black">
               {/* <strong>Address:</strong> 621 Bellwood Rd, Enterprise, AL 36330 */}
               <strong>Email:</strong> displaylotto@gmail.com
             </p>
-            <p className="mb-2">
+            <p className="mb-2 text-black">
               <strong>Phone:</strong> +1 408 673 7277
             </p>
           </div>

@@ -7,8 +7,6 @@ import PricingPlans from '@/components/PricingPlans';
 import Footer from '@/components/Footer';
 import ImageWithFallback from '@/components/ImageWithFallback';
 
-
-
 export default function Home() {
   return (
     <main className="flex h-screen justify-between bg-white">
