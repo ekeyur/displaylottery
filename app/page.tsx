@@ -52,14 +52,16 @@ export default function Home() {
           <div className="w-full bg-fuchsia-300 flex justify-center items-center py-8 px-4 rounded-md">
             <div className="max-w-4xl flex gap-2">
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+                <div className="w-20 md:w-72">
                   <ImageWithFallback
                     className="bg-gray-200 object-contain shadow-sm rounded-full"
-                    height={50}
-                    width={50}
+                    height={250}
+                    width={250}
                     src="/assets/rajesh.jpeg"
                     fallbackSrc="/coming-soon.svg"
                     alt=""
                   />
+                </div>
                 <div>
                   <blockquote>
                     <p className="text-xs font-normal text-gray-900 sm:text-sm xl:text-lg xl:leading-8">
