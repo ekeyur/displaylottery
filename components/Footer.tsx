@@ -19,7 +19,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="h-32 w-64">
+          <div className="w-84 md:w-48 my-4">
             <SimpleCarousel images={carouselImages} interval={10_000} />
           </div>
         </div>
