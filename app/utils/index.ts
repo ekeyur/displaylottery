@@ -56,3 +56,13 @@ export function randomNoRepeats(array: any[]) {
     return item;
   };
 }
+
+
+export function getNextItem(array: any[]) {
+  let currentIndex = 0;
+  return () => {
+    const currentItem = array[currentIndex];
+    currentIndex = (currentIndex + 1) % array.length; 
+    return currentItem;
+  };
+}

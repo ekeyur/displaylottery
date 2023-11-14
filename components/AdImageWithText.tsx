@@ -3,10 +3,9 @@ import ImageWithFallback from './ImageWithFallback';
 import { cn, randomNoRepeats } from '@/app/utils';
 
 function AdImageWithText({adImages}: {adImages: any}) {
-
+  
 const getImage = randomNoRepeats(adImages);
-
-  const image = getImage();
+const image = getImage();
 
   return (
     <div className="relative" key={image.img}>

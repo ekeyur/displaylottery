@@ -12,7 +12,7 @@ function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheet
 
 const { data, error, isLoading } = useQuery({
   queryKey: ["getLotteryData", docid, sheetname],
-  refetchInterval: 1000 * 60 * 30,
+  refetchInterval: 1000 * 60 * 60,
   queryFn: () => getLotteryData({ docid, sheetname }),
   refetchOnWindowFocus: false,
 });
@@ -34,7 +34,7 @@ if (!data?.values) return null;
       <div className="w-full h-full flex items-center justify-around font-mono flex-wrap">
         {data.values.slice(0, data.num_to_display).map((game: any, index: number) => {
           return (
-            <div key={index} className={cn("relative")}>
+            <div key={game.slot_number} className={cn("relative")}>
               {game.ticket_price && game.slot_number && (
                 <div
                   className={cn(
@@ -94,10 +94,7 @@ if (!data?.values) return null;
                   className="flex justify-center items-end"
                 >
                   <AdImageWithText
-                    adImages={[
-                      ...data.ad_images,
-                      { img: "/coming-soon.svg", time: "30", text: "" },
-                    ]}
+                    adImages={data.ad_images}
                   />
                 </div>
               )}
