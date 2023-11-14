@@ -24,7 +24,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="text-center py-4 bg-gray-100">
+      <div className="text-center py-4 bg-gray-100 text-black">
         &copy; {new Date().getFullYear()} DisplayLotto. All Rights Reserved.
       </div>
     </footer>
