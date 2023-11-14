@@ -134,13 +134,19 @@ var lotteryPlans = [
     title: "Lottery Display",
     description: "No advertisement",
     price: "20$",
-    features: [{ isChecked: false, text: "Advertise products" }],
+    features: [
+      { isChecked: true, text: "Works with any TV" },
+      { isChecked: false, text: "Advertise products" },
+    ],
   },
   {
     title: "Lottery Display",
     description: "Product advertisement",
     price: "25$",
-    features: [{ isChecked: true, text: "Advertise products" }],
+    features: [
+      { isChecked: true, text: "Works with any TV" },
+      { isChecked: true, text: "Advertise products" },
+    ],
   },
 ];
 var menuboardPlans = [
@@ -151,10 +157,6 @@ var menuboardPlans = [
     features: [
       { isChecked: true, text: "Pick any template" },
       { isChecked: true, text: "Landscape or portrait" },
-      {
-        isChecked: true,
-        text: "Unlimited displays",
-      },
     ],
   },
   {
@@ -164,10 +166,7 @@ var menuboardPlans = [
     features: [
       { isChecked: true, text: "Pick any template" },
       { isChecked: true, text: "Landscape or portrait" },
-      {
-        isChecked: true,
-        text: "Unlimited displays",
-      },
+      
     ],
   },
   {
@@ -177,10 +176,7 @@ var menuboardPlans = [
     features: [
       { isChecked: true, text: "Pick any template" },
       { isChecked: true, text: "Landscape or portrait" },
-      {
-        isChecked: true,
-        text: "Unlimited displays",
-      },
+      
     ],
   },
 ];
