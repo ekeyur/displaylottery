@@ -54,8 +54,8 @@ export default function Home() {
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
                   <ImageWithFallback
                     className="bg-gray-200 object-contain shadow-sm rounded-full"
-                    height={300}
-                    width={300}
+                    height={50}
+                    width={50}
                     src="/assets/rajesh.jpeg"
                     fallbackSrc="/coming-soon.svg"
                     alt=""
