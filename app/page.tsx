@@ -124,9 +124,6 @@ var features = [
 ];
 var carouselImages = [
   "/assets/lotto-screen.png",
-  "/assets/menu1.png",
-  "/assets/menu2.png",
-  "/assets/menu3.png",
 ];
 
 var lotteryPlans = [
