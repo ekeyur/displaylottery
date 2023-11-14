@@ -52,16 +52,14 @@ export default function Home() {
           <div className="w-full bg-fuchsia-300 flex justify-center items-center py-8 px-4 rounded-md">
             <div className="max-w-4xl flex gap-2">
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
-             
                   <ImageWithFallback
                     className="bg-gray-200 object-contain shadow-sm rounded-full"
                     height={300}
                     width={300}
-                    src=""
+                    src="/assets/rajesh.jpeg"
                     fallbackSrc="/coming-soon.svg"
                     alt=""
                   />
-                
                 <div>
                   <blockquote>
                     <p className="text-xs font-normal text-gray-900 sm:text-sm xl:text-lg xl:leading-8">
@@ -84,7 +82,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        
+
         <section
           id="pricing"
           className="overflow-hidden bg-white sm:grid sm:items-center py-16 px-4 flex flex-col sm:flex-row justify-center"
@@ -125,10 +123,10 @@ var features = [
   },
 ];
 var carouselImages = [
-  "/lotto-screen.png",
-  "/menu1.png",
-  "/menu2.png",
-  "/menu3.png",
+  "/assets/lotto-screen.png",
+  "/assets/menu1.png",
+  "/assets/menu2.png",
+  "/assets/menu3.png",
 ];
 
 var lotteryPlans = [

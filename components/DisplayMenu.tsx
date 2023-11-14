@@ -22,7 +22,7 @@ function DisplayMenu({ data }: {data: any}) {
         height={data[0].landscape ? 1280 : 1960}
         width={data[0].landscape ? 1960 : 1280}
         src={currentImage}
-        fallbackSrc="/not_found.png"
+        fallbackSrc="/assets/not_found.png"
         alt="menu Image"
         className="object-contain h-full w-full"
       />
@@ -44,5 +44,5 @@ function showImageBasedOnTime(data: any) {
       return image.img_url;
     }
   }
-  return "/not_found.png";
+  return "/assets/not_found.png";
 }
