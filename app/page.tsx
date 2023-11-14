@@ -35,7 +35,7 @@ export default function Home() {
                   href="#contact"
                   className="inline-block rounded bg-fuchsia-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-fuchsia-700 focus:outline-none focus:ring focus:ring-yellow-400"
                 >
-                  Get Started Today
+                  Contact Us To Get Started Today
                 </a>
               </div>
             </div>
