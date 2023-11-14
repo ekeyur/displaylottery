@@ -34,8 +34,8 @@ const Footer = () => {
 export default Footer;
 
 var carouselImages = [
-  "/lotto-screen.png",
-  "/menu1.png",
-  "/menu2.png",
-  "/menu3.png",
+  "/assets/lotto-screen.png",
+  "/assets/menu1.png",
+  "/assets/menu2.png",
+  "/assets/menu3.png",
 ];
