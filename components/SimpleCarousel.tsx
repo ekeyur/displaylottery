@@ -20,7 +20,6 @@ function SimpleCarousel({
       showIndicators={true}
       showStatus={false}
       showThumbs={false}
-      autoPlay
       interval={interval}
       transitionTime={3000}
     >
