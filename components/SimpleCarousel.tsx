@@ -11,7 +11,7 @@ function SimpleCarousel({
   interval,
 }: {
   images: string[];
-  interval: number;
+  interval?: number;
 }) {
   return (
     <Carousel
@@ -22,6 +22,7 @@ function SimpleCarousel({
       showThumbs={false}
       interval={interval}
       transitionTime={3000}
+      autoPlay={!!interval}
     >
       {images?.map((img: string) => (
         <div

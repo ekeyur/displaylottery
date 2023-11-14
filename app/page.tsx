@@ -42,7 +42,7 @@ export default function Home() {
           </div>
 
           <div className="h-full w-full object-cover sm:h-[calc(100%_-_0rem)] sm:self-end sm:rounded-ss-[10px] md:h-[calc(100%_-_0rem)] md:rounded-ss-[20px]">
-            <SimpleCarousel images={carouselImages} interval={10_000} />
+            <SimpleCarousel images={carouselImages} />
           </div>
         </section>
 
