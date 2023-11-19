@@ -29,8 +29,7 @@ export async function GET(request: Request) {
 
     const img_width = data[0].image_width;
     const img_height = data[0].image_height;
-    const ad_div_height = data[0].ad_div_height;
-    const num_to_display = data[0].num_to_display;
+    const num_of_slots = data[0].num_of_slots;
     const state = data[0].state
     type ad_image_type = {img: string, time: string, text: string}
     const ad_images: ad_image_type[] = [];
@@ -38,7 +37,7 @@ export async function GET(request: Request) {
     data.forEach((val) => {
       if(!val.ad_image) return
       //@ts-ignore
-      ad_images.push({img: val?.ad_image, time: val?.ad_image_display_time_sec ?? DEFAULT_TIME, text: val?.ad_image_display_text});
+      ad_images.push({img: val?.ad_image, time: DEFAULT_TIME, text: val?.ad_image_display_text});
 
     });
 
@@ -48,12 +47,12 @@ export async function GET(request: Request) {
         game_number: each_row.game_number,
         image_url: each_row.game_number ? getImageUrl(each_row.game_number,state) : null,
         game_name: each_row.game_name,
-        ticket_price: each_row.ticket_price,
-        ticket_label: each_row.ticket_label,
+        game_price: each_row.game_price,
+        featured_label: each_row.featured_label,
         is_featured: each_row.is_featured === "Yes"
       }
     })
     
-    return NextResponse.json({ values: finalData, img_width , img_height, ad_div_height, num_to_display, ad_images });
+    return NextResponse.json({ values: finalData, img_width , img_height, num_of_slots, ad_images });
 
 }

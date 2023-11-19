@@ -9,6 +9,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'www.sceducationlottery.com',
+        port: ''
+      },
+      {
+        protocol: 'https',
         hostname: 'fastly.picsum.photos',
         port: ''
       },
