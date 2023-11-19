@@ -9,7 +9,9 @@ const image = getImage();
 
   return (
     <div className="relative" key={image.img}>
-      <div className="absolute -top-2 right-2 text-xl font-bold">{image.text}</div>
+      <div className="absolute -top-6 left-0 text-sm font-bold line-clamp-1">
+        {image.text}
+      </div>
       <ImageWithFallback
         src={image.img}
         width={500}
