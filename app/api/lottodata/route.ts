@@ -45,7 +45,7 @@ export async function GET(request: Request) {
       return {
         slot_number: each_row.slot_number,
         game_number: each_row.game_number,
-        image_url: each_row.game_number ? getImageUrl(each_row.game_number,state) : null,
+        image_url: each_row.game_number ? each_row.game_image_url : null,
         game_name: each_row.game_name,
         game_price: each_row.game_price,
         featured_label: each_row.featured_label,
