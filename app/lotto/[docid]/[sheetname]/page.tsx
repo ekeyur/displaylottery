@@ -75,9 +75,9 @@ if (!data?.values) return null;
                         width: `${data.img_width}px`,
                         height: `${data.img_height}px`,
                       }}
-                      src={game.image_url?.url}
+                      src={game.game_image_url}
                       isfeatured={game.is_featured.toString()}
-                      fallbackSrc={game.image_url?.fallbackUrl}
+                      fallbackSrc={game.image_url}
                       width={500}
                       height={600}
                       alt={game?.game_number}
