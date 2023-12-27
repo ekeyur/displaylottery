@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
-import { getImageUrl } from '../../utils/getImageUrl';
 const DEFAULT_TIME = '30'
 
 export async function GET(request: Request) {

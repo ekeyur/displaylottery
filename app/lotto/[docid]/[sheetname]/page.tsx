@@ -6,7 +6,7 @@ import {cn, priceBgColorString} from '../../../utils';
 import AdImageWithText from '@/components/AdImageWithText';
 import { useQuery } from '@tanstack/react-query';
 import Loading from '@/components/Loading';
-import {getLotteryData} from '../../../utils/getLotteryData'
+import {getLotteryData} from '../../../utils/getLotteryData';
 
 function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
 
