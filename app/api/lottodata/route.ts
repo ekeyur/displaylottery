@@ -2,10 +2,9 @@ import { NextResponse } from "next/server";
 
 import { GoogleSpreadsheet } from 'google-spreadsheet';
 import { JWT } from 'google-auth-library';
-const DEFAULT_TIME = '30'
+
 
 export async function GET(request: Request) {
-
     const { searchParams } = new URL(request.url);
     const docid = searchParams.get('docid')!;
     const sheetname = searchParams.get('sheetname')!;
@@ -30,28 +29,19 @@ export async function GET(request: Request) {
     const img_height = data[0].image_height;
     const num_of_slots = data[0].num_of_slots;
     const state = data[0].state
-    type ad_image_type = {img: string, time: string, text: string}
-    const ad_images: ad_image_type[] = [];
 
-    data.forEach((val) => {
-      if(!val.ad_image) return
-      //@ts-ignore
-      ad_images.push({img: val?.ad_image, time: DEFAULT_TIME, text: val?.ad_image_display_text});
-
-    });
-
+  
     const finalData = data.map(each_row => {
       return {
         slot_number: each_row.slot_number,
         game_number: each_row.game_number,
         game_image_url: each_row.game_number ? each_row.game_image_url : null,
         game_name: each_row.game_name,
-        game_price: each_row.game_price,
-        featured_label: each_row.featured_label,
+        game_price: each_row.ticket_price,
+        featured_label: each_row.ticket_label,
         is_featured: each_row.is_featured === "Yes"
       }
-    })
-    
-    return NextResponse.json({ values: finalData, img_width , img_height, num_of_slots, ad_images });
+    })  
+    return NextResponse.json({ values: finalData, img_width , img_height, num_of_slots });
 
 }

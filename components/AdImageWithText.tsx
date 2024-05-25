@@ -1,11 +1,10 @@
-import React from 'react'
-import ImageWithFallback from './ImageWithFallback';
-import { cn, randomNoRepeats } from '@/app/utils';
+import React from "react";
+import ImageWithFallback from "./ImageWithFallback";
+import { cn, randomNoRepeats } from "@/app/utils";
 
-function AdImageWithText({adImages}: {adImages: any}) {
-  
-const getImage = randomNoRepeats(adImages);
-const image = getImage();
+function AdImageWithText({ adImages }: { adImages: any }) {
+  const getImage = randomNoRepeats(adImages);
+  const image = getImage();
 
   return (
     <div className="relative" key={image.img}>
@@ -23,4 +22,4 @@ const image = getImage();
   );
 }
 
-export default AdImageWithText
+export default AdImageWithText;

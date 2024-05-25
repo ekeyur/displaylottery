@@ -1,33 +1,26 @@
-'use client'
+"use client";
 
-import React from 'react'
-import ImageWithFallback from "../../../../components/ImageWithFallback"
-import {cn, priceBgColorString} from '../../../utils';
-import AdImageWithText from '@/components/AdImageWithText';
-import { useQuery } from '@tanstack/react-query';
-import Loading from '@/components/Loading';
-import {getLotteryData} from '../../../utils/getLotteryData';
+import React from "react";
+import ImageWithFallback from "@/components/ImageWithFallback";
+import { cn, priceBgColorString } from "../../../utils";
+import { useQuery } from "@tanstack/react-query";
+import Loading from "@/components/Loading";
+import { getLotteryData } from "../../../utils/getLotteryData";
 
-function Screen({ params: {docid, sheetname} }: { params: { docid: string, sheetname: string } }) {
+function Screen({
+  params: { docid, sheetname },
+}: {
+  params: { docid: string; sheetname: string };
+}) {
+  const { data, error } = useQuery({
+    queryKey: ["getLotteryData", docid, sheetname],
+    refetchInterval: 1000 * 60 * 60,
+    queryFn: () => getLotteryData({ docid, sheetname }),
+    refetchOnWindowFocus: false,
+  });
 
-const { data, error, isLoading } = useQuery({
-  queryKey: ["getLotteryData", docid, sheetname],
-  refetchInterval: 1000 * 60 * 60,
-  queryFn: () => getLotteryData({ docid, sheetname }),
-  refetchOnWindowFocus: false,
-});
-
-if(isLoading) {
-  return (
-    <div className="flex flex-col p-1 overflow-hidden h-screen w-screen bg-gray-50 justify-center items-center">
-      <Loading />
-    </div>
-  );
-}
-
-if(error) return null;
-
-if (!data?.values) return null;
+  if (error) return null;
+  if (!data?.values) return null;
 
   return (
     <main className="flex flex-col p-1 overflow-hidden h-screen w-screen bg-gray-50">
@@ -68,39 +61,26 @@ if (!data?.values) return null;
                   </div>
                 )}
 
-                {game.game_price ? (
-                  <div className="relative flex justify-center items-center">
-                    <ImageWithFallback
-                      style={{
-                        width: `${data.img_width}px`,
-                        height: `${data.img_height}px`,
-                      }}
-                      src={game.game_image_url}
-                      isfeatured={game.is_featured.toString()}
-                      fallbackSrc={game.image_url}
-                      width={500}
-                      height={600}
-                      alt={game?.game_number}
-                      className={cn(
-                        `rounded-md`,
-                        game.game_price
-                          ? `object-cover object-left-top`
-                          : `object-contain object-center`
-                      )}
-                    />
-                  </div>
-                ) : (
-                  <div
+                <div className="relative flex justify-center items-center">
+                  <ImageWithFallback
                     style={{
                       width: `${data.img_width}px`,
                       height: `${data.img_height}px`,
                     }}
-                    key={index}
-                    className="flex justify-center items-end"
-                  >
-                    <AdImageWithText adImages={data.ad_images} />
-                  </div>
-                )}
+                    src={game?.game_image_url}
+                    isfeatured={game.is_featured.toString()}
+                    fallbackSrc={`/assets/coming-soon.svg`}
+                    width={500}
+                    height={600}
+                    alt={game?.game_number}
+                    className={cn(
+                      `rounded-md`,
+                      game?.game_price
+                        ? `object-cover object-left-top`
+                        : `object-contain object-center`
+                    )}
+                  />
+                </div>
               </div>
             );
           })}
@@ -109,5 +89,4 @@ if (!data?.values) return null;
   );
 }
 
-export default Screen
-
+export default Screen;

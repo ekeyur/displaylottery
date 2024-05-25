@@ -1,11 +1,9 @@
-import Navbar from '@/components/Navbar'
-import {
- TvIcon
-} from "@heroicons/react/24/outline";
-import SimpleCarousel from '@/components/SimpleCarousel';
-import PricingPlans from '@/components/PricingPlans';
-import Footer from '@/components/Footer';
-import ImageWithFallback from '@/components/ImageWithFallback';
+import Navbar from "@/components/Navbar";
+import { TvIcon } from "@heroicons/react/24/outline";
+import SimpleCarousel from "@/components/SimpleCarousel";
+import PricingPlans from "@/components/PricingPlans";
+import Footer from "@/components/Footer";
+import ImageWithFallback from "@/components/ImageWithFallback";
 
 export default function Home() {
   return (
@@ -107,7 +105,6 @@ export default function Home() {
   );
 }
 
-
 var features = [
   {
     name: "Lottery Display",
@@ -122,9 +119,7 @@ var features = [
     icon: TvIcon,
   },
 ];
-var carouselImages = [
-  "/assets/lotto-screen.png",
-];
+var carouselImages = ["/assets/lotto-screen.png"];
 
 var lotteryPlans = [
   {
@@ -163,7 +158,6 @@ var menuboardPlans = [
     features: [
       { isChecked: true, text: "Pick any template" },
       { isChecked: true, text: "Landscape or portrait" },
-      
     ],
   },
   {
@@ -173,7 +167,6 @@ var menuboardPlans = [
     features: [
       { isChecked: true, text: "Pick any template" },
       { isChecked: true, text: "Landscape or portrait" },
-      
     ],
   },
 ];
