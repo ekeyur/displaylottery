@@ -10,7 +10,7 @@ export default function Home() {
     <main className="flex h-screen justify-between bg-white">
       <Navbar />
 
-      <div className="z-10 w-full h-full font-mono">
+      <div className="z-10 w-full h-full">
         <section
           id="home"
           className="overflow-hidden bg-white sm:grid sm:grid-cols-2 sm:items-center pt-20 px-4"
@@ -45,7 +45,7 @@ export default function Home() {
         </section>
 
         <section className="overflow-hidden bg-white sm:grid sm:items-center pt-8 px-4">
-          <div className="w-full bg-fuchsia-300 flex justify-center items-center py-8 px-4 rounded-md">
+          <div className="w-full bg-fuchsia-300 flex justify-center items-center py-16 px-4 rounded-md">
             <div className="max-w-4xl flex gap-2">
               <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
                 <div className="w-20 md:w-72">
@@ -63,10 +63,10 @@ export default function Home() {
                     <p className="text-xs font-normal text-gray-900 sm:text-sm xl:text-lg xl:leading-8">
                       “The implementation of the lottery display has
                       significantly enhanced our lottery sales while
-                      simultaneously freeing up valuable counter. Additionally,
-                      we leverage the menu board display to effectively present
-                      our deli menu, contributing to an overall streamlined and
-                      efficient operation.”
+                      simultaneously freeing up valuable counter space.
+                      Additionally, we leverage the menu board display to
+                      effectively present our deli menu, contributing to an
+                      overall streamlined and efficient operation.”
                     </p>
                   </blockquote>
                   <p className="text-base font-semibold text-gray-900 mt-2 sm:mt-4 lg:text-lg">

@@ -1,11 +1,14 @@
 import React from "react";
 
-type propType={ title: string, description: string, price: string, features: featureType[] }
+type propType = {
+  title: string;
+  description: string;
+  price: string;
+  features: featureType[];
+};
 type featureType = { isChecked: boolean; text: string };
 
-
 const PlanCard = ({ title, description, price, features }: propType) => {
-  
   const getIconClassName = (isChecked: boolean) => {
     return isChecked ? "text-green-700" : "text-red-700";
   };
